@@ -140,7 +140,16 @@ To install MongoDB, set the database username and password in `values.yaml`, the
 
 ```
 cd Helm_charts/MongoDB
-helm install mongo .
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+
+helm install mongodb bitnami/mongodb
+
+helm show values bitnami/mongodb > values.yaml
+
+helm install my-mongodb -f values.yaml bitnami/mongodb
+
+helm install my-mongodb -f values.yaml bitnami/mongodb
 ```
 
 Connect to the MongoDB instance using:
